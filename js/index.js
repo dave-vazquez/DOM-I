@@ -111,7 +111,7 @@ contactParas[2].textContent = siteContent.contact.email;
 **********************************************************************************/ 
 const footerPara = document.querySelector('footer p');
 
-footerPara.textContent = siteContent.footer.copyright;
+footerPara.textContent = siteContent.footer.copyright; 
 
 
 
