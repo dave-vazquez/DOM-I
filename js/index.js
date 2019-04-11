@@ -98,10 +98,20 @@ bottomContent2Para.innerText = siteContent["main-content"]["product-content"];
 /*********************************************************************************
 *                                   CONTACT                                      *
 **********************************************************************************/ 
+const contactHeader = document.querySelector('.contact h4');
+const contactParas = document.querySelectorAll('.contact p');
 
+contactHeader.textContent = siteContent.contact["contact-h4"];
+contactParas[0].textContent = siteContent.contact.address;
+contactParas[1].textContent = siteContent.contact.phone;
+contactParas[2].textContent = siteContent.contact.email;
 
+/*********************************************************************************
+*                                    FOOTER                                      *
+**********************************************************************************/ 
+const footerPara = document.querySelector('footer p');
 
-
+footerPara.textContent = siteContent.footer.copyright;
 
 
 
