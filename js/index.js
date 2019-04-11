@@ -45,24 +45,23 @@ const nav = document.querySelector('nav');
 const navAnchors = document.querySelectorAll('nav a');
 const logo = document.getElementById("logo-img");
 
-logo.setAttribute('src', siteContent["nav"]["img-src"]);
-
-navAnchors.forEach((anchor, i) => {
-  anchor.innerText = siteContent.nav[`nav-item-${++i}`];
-  anchor.style.color = 'green';
-});
-
 const prependedAnchor = document.createElement('a');
 const appendedAnchor = document.createElement('a');
 
-prependedAnchor.textContent = 'Locations'
-prependedAnchor.style.color = 'green';
+prependedAnchor.textContent = 'Locations';
+appendedAnchor.textContent = 'Careers';
 
-appendedAnchor.textContent = 'Careers'
-appendedAnchor.style.color = 'green';
+prependedAnchor.style.color = appendedAnchor.style.color = 'green';
+
+navAnchors.forEach((anchor, i) => {
+  anchor.innerText = siteContent.nav[`nav-item-${i+1}`];
+  anchor.style.color = 'green';
+});
 
 nav.prepend(prependedAnchor);
 nav.append(appendedAnchor);
+
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 /*********************************************************************************
 *                               CALL-TO-ACTION                                   *
@@ -71,7 +70,7 @@ const ctaHeader = document.querySelector('.cta-text > h1');
 const ctaButton = document.querySelector('.cta-text > button');
 const ctaImage = document.getElementById('cta-img');
 
-ctaHeader.innerText = siteContent.cta.h1;
+ctaHeader.innerHTML = "DOM <br> Is <br> Awesome";
 ctaButton.innerText = siteContent.cta.button;
 ctaImage.src = siteContent.cta["img-src"];
 
@@ -85,11 +84,11 @@ const topContent1Para = topContentDivs[0].lastElementChild;
 const topContent2Header = topContentDivs[1].firstElementChild;
 const topContent2Para = topContentDivs[1].lastElementChild;
 
-topContent1Header.innerText = siteContent["main-content"]["features-h4"];
-topContent1Para.innerText = siteContent["main-content"]["features-content"];
+topContent1Header.textContent = siteContent["main-content"]["features-h4"];
+topContent1Para.textContent = siteContent["main-content"]["features-content"];
 
-topContent2Header.innerText = siteContent["main-content"]["about-h4"];
-topContent2Para.innerText = siteContent["main-content"]["about-content"];
+topContent2Header.textContent = siteContent["main-content"]["about-h4"];
+topContent2Para.textContent = siteContent["main-content"]["about-content"];
 
 /*   ** MIDDLE-IMG **  */
 
@@ -129,11 +128,6 @@ contactParas[2].textContent = siteContent.contact.email;
 const footerPara = document.querySelector('footer p');
 
 footerPara.textContent = siteContent.footer.copyright; 
-
-
-
-
-
 
 
 
