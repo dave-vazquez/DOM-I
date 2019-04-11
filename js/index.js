@@ -42,8 +42,8 @@ const siteContent = {
 *                                 HEADER/NAV                                     *
 **********************************************************************************/ 
 const nav = document.querySelector('nav');
-const logo = document.getElementById("logo-img");
 const navAnchors = document.querySelectorAll('nav a');
+const logo = document.getElementById("logo-img");
 
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
