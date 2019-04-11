@@ -41,11 +41,28 @@ const siteContent = {
 /*********************************************************************************
 *                                 HEADER/NAV                                     *
 **********************************************************************************/ 
-const navAnchors = document.querySelectorAll('a');
+const nav = document.querySelector('nav');
 const logo = document.getElementById("logo-img");
+const navAnchors = document.querySelectorAll('nav a');
 
-logo.setAttribute('src', siteContent["nav"]["img-src"])
-navAnchors.forEach((anchor, i) => anchor.innerText = siteContent.nav[`nav-item-${++i}`]);
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+navAnchors.forEach((anchor, i) => {
+  anchor.innerText = siteContent.nav[`nav-item-${++i}`];
+  anchor.style.color = 'green';
+});
+
+const prependedAnchor = document.createElement('a');
+const appendedAnchor = document.createElement('a');
+
+prependedAnchor.textContent = 'Locations'
+prependedAnchor.style.color = 'green';
+
+appendedAnchor.textContent = 'Careers'
+appendedAnchor.style.color = 'green';
+
+nav.prepend(prependedAnchor);
+nav.append(appendedAnchor);
 
 /*********************************************************************************
 *                               CALL-TO-ACTION                                   *
