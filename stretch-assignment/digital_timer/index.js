@@ -54,7 +54,7 @@ function resetTimer() {
     DOM.msHunds.textContent = 
     DOM.msTens.textContent = 
     DOM.secOnes.textContent = 
-    DOM.secTens.textContent = '-';
+    DOM.secTens.textContent = '0';
 
     DOM.all.forEach(elem => elem.classList.remove('redDigit'));
 }
