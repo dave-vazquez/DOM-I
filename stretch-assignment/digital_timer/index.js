@@ -70,6 +70,8 @@ function resetTimer() {
     DOM.msTens.textContent = 
     DOM.secOnes.textContent = 
     DOM.secTens.textContent = '-';
+
+    DOM.all.forEach(elem => elem.classList.remove('redDigit'));
 }
 
 function incrementTimer() {
