@@ -59,20 +59,6 @@ function resetTimer() {
     DOM.all.forEach(elem => elem.classList.remove('redDigit'));
 }
 
-function startTimer() {
-
-    resetTimer();
-    
-    if(!state.timerStarted) {
-        DOM.startBtn.innerText = '. . .';
-        DOM.startBtn.backgroundColor = '#008709';
-
-        state.timer = setInterval(incrementTimer, interval); // 10
-        
-        state.timerStarted = true;
-    }
-}
-
 function incrementTimer() {
     DOM.msHunds.textContent = state.msHunds += state.interval/10;
     
