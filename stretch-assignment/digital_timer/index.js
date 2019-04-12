@@ -40,13 +40,25 @@ DOM.startBtn.addEventListener('click', () => {
 DOM.resetBtn.addEventListener('click', () => {
     clearInterval(state.timer);
     resetTimer();
-    resetStartButton();
 
     state.timerStarted = false;
 });
 /*********************************************************************************
 *                                   TIMER FUNCTIONS                              *
 **********************************************************************************/ 
+function resetTimer() {     
+    state.timer = null;
+    
+    state.msHunds = state.msTens = state.secOnes = state.secTens = 0;
+    
+    DOM.msHunds.textContent = 
+    DOM.msTens.textContent = 
+    DOM.secOnes.textContent = 
+    DOM.secTens.textContent = '-';
+
+    DOM.all.forEach(elem => elem.classList.remove('redDigit'));
+}
+
 function startTimer() {
 
     resetTimer();
@@ -59,19 +71,6 @@ function startTimer() {
         
         state.timerStarted = true;
     }
-}
-
-function resetTimer() {     
-    state.timer = null;
-    
-    state.msHunds = state.msTens = state.secOnes = state.secTens = 0;
-    
-    DOM.msHunds.textContent = 
-    DOM.msTens.textContent = 
-    DOM.secOnes.textContent = 
-    DOM.secTens.textContent = '-';
-
-    DOM.all.forEach(elem => elem.classList.remove('redDigit'));
 }
 
 function incrementTimer() {
@@ -92,14 +91,8 @@ function incrementTimer() {
 
                 state.timerStarted = false;
 
-                resetStartButton();
                 clearInterval(state.timer);
             }
         }
     }
-}
-
-function resetStartButton() {
-    DOM.startBtn.innerText = 'START';
-    DOM.startBtn.style.backgroundColor = '#00b00c';
 }
