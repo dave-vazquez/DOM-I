@@ -12,7 +12,6 @@ const DOM = {
     startBtn: document.getElementById('start-button'),
     resetBtn: document.getElementById('reset-button')
 };
-
 /*********************************************************************************
 *                                  STATE OBJECT                                  *
 **********************************************************************************/ 
@@ -24,8 +23,7 @@ const state = {
     timer: null,
     interval: 10,
     timerStarted: false
-}
-
+};
 /*********************************************************************************
 *                                  EVENT LISTENERS                               *
 **********************************************************************************/ 
@@ -39,16 +37,15 @@ DOM.startBtn.addEventListener('click', () => {
     }
 });
 
-DOM.resetBtn.addEventListener('click', evt => {
+DOM.resetBtn.addEventListener('click', () => {
     clearInterval(state.timer);
     resetTimer();
     resetStartButton();
 
     state.timerStarted = false;
-})
-
+});
 /*********************************************************************************
-*                                     FUNCTIONS                                  *
+*                                   TIMER FUNCTIONS                              *
 **********************************************************************************/ 
 function startTimer() {
 
