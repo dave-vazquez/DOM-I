@@ -37,6 +37,101 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+/*********************************************************************************
+*                                 HEADER/NAV                                     *
+**********************************************************************************/ 
+const nav = document.querySelector('nav');
+const navAnchors = document.querySelectorAll('nav a');
+const logo = document.getElementById("logo-img");
+
+const prependedAnchor = document.createElement('a');
+const appendedAnchor = document.createElement('a');
+
+prependedAnchor.textContent = 'Locations';
+appendedAnchor.textContent = 'Careers';
+
+prependedAnchor.style.color = appendedAnchor.style.color = 'green';
+
+navAnchors.forEach((anchor, i) => {
+  anchor.innerText = siteContent.nav[`nav-item-${i+1}`];
+  anchor.style.color = 'green';
+});
+
+nav.prepend(prependedAnchor);
+nav.append(appendedAnchor);
+
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+/*********************************************************************************
+*                               CALL-TO-ACTION                                   *
+**********************************************************************************/ 
+const ctaHeader = document.querySelector('.cta-text > h1');
+const ctaButton = document.querySelector('.cta-text > button');
+const ctaImage = document.getElementById('cta-img');
+
+ctaHeader.innerHTML = "DOM <br> Is <br> Awesome";
+ctaButton.innerText = siteContent.cta.button;
+ctaImage.src = siteContent.cta["img-src"];
+
+/*********************************************************************************
+*                                 TOP-CONTENT                                    *
+**********************************************************************************/ 
+const topContentDivs = document.querySelectorAll('.top-content div');
+
+const topContent1Header = topContentDivs[0].firstElementChild;
+const topContent1Para = topContentDivs[0].lastElementChild;
+const topContent2Header = topContentDivs[1].firstElementChild;
+const topContent2Para = topContentDivs[1].lastElementChild;
+
+topContent1Header.textContent = siteContent["main-content"]["features-h4"];
+topContent1Para.textContent = siteContent["main-content"]["features-content"];
+
+topContent2Header.textContent = siteContent["main-content"]["about-h4"];
+topContent2Para.textContent = siteContent["main-content"]["about-content"];
+
+/*   ** MIDDLE-IMG **  */
+
+const middleImg = document.getElementById('middle-img');
+middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+/*********************************************************************************
+*                               BOTTOM-CONTENT                                   *
+**********************************************************************************/ 
+const bottomContentDivs = document.querySelectorAll('.bottom-content div');
+
+const bottomContent1Header = bottomContentDivs[0].firstElementChild;
+const bottomContent1Para = bottomContentDivs[0].lastElementChild;
+const bottomContent2Header = bottomContentDivs[1].firstElementChild;
+const bottomContent2Para = bottomContentDivs[1].lastElementChild;
+
+bottomContent1Header.innerText = siteContent["main-content"]["services-h4"];
+bottomContent1Para.innerText = siteContent["main-content"]["services-content"];
+
+bottomContent2Header.innerText = siteContent["main-content"]["product-h4"];
+bottomContent2Para.innerText = siteContent["main-content"]["product-content"];
+
+/*********************************************************************************
+*                                   CONTACT                                      *
+**********************************************************************************/ 
+const contactHeader = document.querySelector('.contact h4');
+const contactParas = document.querySelectorAll('.contact p');
+
+contactHeader.textContent = siteContent.contact["contact-h4"];
+contactParas[0].textContent = siteContent.contact.address;
+contactParas[1].textContent = siteContent.contact.phone;
+contactParas[2].textContent = siteContent.contact.email;
+
+/*********************************************************************************
+*                                    FOOTER                                      *
+**********************************************************************************/ 
+const footerPara = document.querySelector('footer p');
+
+footerPara.textContent = siteContent.footer.copyright; 
+
+
+
+
+
+
+
